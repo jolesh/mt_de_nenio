@@ -170,8 +170,8 @@ minetest.register_node("de_nenio:sieve_empty", {
 	description = S("Sieve"),
 	drawtype = "nodebox",
     tiles = {
-          "de_nenio_sieve_empty_2d_d.png",  -- TOP
-          "de_nenio_sieve_empty_2d_d.png",  -- BOTTOM
+          "de_nenio_sieve_empty_DT.png",  -- TOP
+          "de_nenio_sieve_empty_DT.png",  -- BOTTOM
           "de_nenio_sieve_empty_side.png",  -- LEFT
           "de_nenio_sieve_empty_side.png",  -- RIGHT
           "de_nenio_sieve_empty_side.png",  -- FRONT
@@ -189,7 +189,17 @@ minetest.register_node("de_nenio:sieve_empty", {
          { 0.4375,  0.0000, -0.4375,  0.3125,  0.1250,  0.4375}, --Corpse E
          { 0.4375,  0.0000, -0.4375, -0.3125,  0.1250, -0.3125}, --Corpse S
          { 0.4375,  0.0000,  0.4375, -0.3125,  0.1250,  0.3125}, --Corpse N
-         {-0.3125,  0.0000, -0.3125,  0.3125,  0.0000,  0.3125}, --Grid
+
+         { 0.3125, -0.0625,  0.3125,  0.2500,  0.0000, -0.3125}, --Grid Outer E
+         {-0.3125, -0.0625,  0.3125, -0.2500,  0.0000, -0.3125}, --Grid Outer W
+         {-0.3125, -0.0625,  0.3125,  0.3125,  0.0000,  0.2500}, --Grid Outer N
+         {-0.3125, -0.0625, -0.3125,  0.3125,  0.0000, -0.2500}, --Grid Outer S
+         { 0.1250, -0.0625,  0.3125,  0.1875,  0.0000, -0.3125}, --Grid Middle E
+         {-0.1250, -0.0625,  0.3125, -0.1875,  0.0000, -0.3125}, --Grid Middle W
+         {-0.3125, -0.0625,  0.1250,  0.3125,  0.0000,  0.1875}, --Grid Middle N
+         {-0.3125, -0.0625, -0.1250,  0.3125,  0.0000, -0.1875}, --Grid Middle S
+         { 0.0625, -0.0625,  0.3125, -0.0625,  0.0000, -0.3125}, --Grid Centrum NS
+         {-0.3125, -0.0625,  0.0625,  0.3125,  0.0000, -0.0625}, --Grid Centrum WE
 		},
 	},
 
@@ -213,7 +223,7 @@ minetest.register_node("de_nenio:sieve_empty", {
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
           local nodename = itemstack:get_name()
-          if nodename:match("default:gravel") then
+          if nodename:match("gravel") then
                if not minetest.settings:get_bool("creative_mode") then
                    itemstack:take_item()
                end
@@ -229,8 +239,8 @@ minetest.register_node("de_nenio:sieve_empty", {
 minetest.register_craft({
 	output = "de_nenio:sieve_empty",
 	recipe = {
-		{"",           "",           ""          },
-		{"group:wood", "group:wool", "group:wood"},
-		{"group:wood", "",           "group:wood"}
+		{"group:wood", "",           "group:wood"},
+		{"group:wood", "",           "group:wood"},
+		{"group:wood", "group:wood", "group:wood"}
 	}
 })
