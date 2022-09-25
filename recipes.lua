@@ -14,6 +14,15 @@ minetest.register_craft({
    }
 })
 
+minetest.register_craft({
+   output = "default:cobble",
+   recipe = {
+      {"de_nenio:pebble", "de_nenio:pebble", "de_nenio:pebble"},
+      {"de_nenio:pebble", "de_nenio:pebble", "de_nenio:pebble"},
+      {"de_nenio:pebble", "de_nenio:pebble", "de_nenio:pebble"},
+   }
+})
+
 --Hammers
 
 minetest.register_craft({

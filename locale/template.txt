@@ -1,0 +1,8 @@
+# textdomain: de_nenio
+Cobble Bucket=
+Wood Hammer=
+Stone Hammer=
+Bronze Hammer=
+Steel Hammer=
+Mese Hammer=
+Diamond Hammer=
