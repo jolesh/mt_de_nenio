@@ -37,7 +37,6 @@ minetest.register_node("de_nenio:sieve_empty", {
          { 0.4375, -0.5000,  0.4375,  0.3125,  0.0000,  0.3125}, --Leg NE
          {-0.4375, -0.5000,  0.4375, -0.3125,  0.0000,  0.3125}, --Leg NW
          {-0.4375,  0.0000, -0.4375,  0.4375,  0.1250,  0.4375}, --Corpse
-         {-0.3125,  0.1250, -0.3125,  0.3125,  0.1250,  0.3125}, --Block
 		},
 	},
 
@@ -69,11 +68,25 @@ minetest.register_node("de_nenio:sieve_empty", {
    end,
 })
 
+minetest.register_craftitem("de_nenio:grid_stick", {
+   description = S("Stick Grid"),
+   inventory_image = "de_nenio_grid_stick.png",
+})
+
+minetest.register_craft({
+	output = "de_nenio:grid_stick",
+	recipe = {
+		{"group:stick", "group:stick", "group:stick"},
+		{"group:stick", "group:stick", "group:stick"},
+      {"group:stick", "group:stick", "group:stick"},
+	}
+})
+
 minetest.register_craft({
 	output = "de_nenio:sieve_empty",
 	recipe = {
-		{"group:wood", "group:wool", "group:wood"},
-		{"group:wood", "",           "group:wood"}
+		{"group:wood", "de_nenio:grid_stick", "group:wood"},
+		{"group:wood", "",                    "group:wood"}
 	}
 })
 
