@@ -14,6 +14,13 @@ minetest.register_craft({
    }
 })
 
+minetest.register_craft({
+   type = "shapeless",
+   output = "default:clay 2",
+   recipe = {"default:sand", "bucket:bucket_water", "default:dirt"},
+   replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
+})
+
 --Hammers
 
 minetest.register_craft({
