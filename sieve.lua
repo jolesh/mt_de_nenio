@@ -103,8 +103,10 @@ minetest.register_node("de_nenio:sieve_gravel_8", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
 	--sounds = metal_sounds,
+
+   drop = "de_nenio:sieve_empty",
 
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
@@ -138,8 +140,10 @@ minetest.register_node("de_nenio:sieve_gravel_6", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
-	sounds = metal_sounds,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
+	--sounds = metal_sounds,
+
+   drop = "de_nenio:sieve_empty",
 
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
@@ -172,8 +176,10 @@ minetest.register_node("de_nenio:sieve_gravel_4", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
 	--sounds = metal_sounds,
+
+   drop = "de_nenio:sieve_empty",
 
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
@@ -206,41 +212,50 @@ minetest.register_node("de_nenio:sieve_gravel_2", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
 	--sounds = metal_sounds,
+   drop = {
+      max_items = 3,
+      items = {
+         {
+            rarity = 100,
+            items = {"default:diamond"}
+         },
+         {
+            rarity = 50,
+            items = {"default:mese_crystal"}
+         },
+         {
+            rarity = 20,
+            items = {"de_nenio:lump_small_gold"}
+         },
+         {
+            rarity = 10,
+            items = {"de_nenio:lump_small_iron"}
+         },
+         {
+            rarity = 10,
+            items = {"default:coal_lump"}
+         },
+         {
+            rarity = 5,
+            items = {"de_nenio:lump_small_tin"}
+         },
+         {
+            rarity = 5,
+            items = {"de_nenio:lump_small_copper"}
+         },
+         {
+            rarity = 5,
+            items = {"default:flint"}
+         },
+      },
+   },
 
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
-         minetest.swap_node(pos, { name = "de_nenio:sieve_empty" })
-         local gravel_loot = {items = {
-            {
-               items = {"default:sand"},
-            },
-            {
-               items = {"default:gravel"},
-            },
-         },}
---[[            max_items = 2,
-            items = {
-               {
-                  items = {"default:sand"},
-               },
-               {
-                  items = {"default:gravel"},
-               },
-            },
-         }]]
-         local inv = clicker:get_inventory()
-             if not inv then
-                 minetest.add_item(clicker:get_pos(), gravel_loot)
-                 return
-             end
-             remaining = inv:add_item("main", gravel_loot)
-             if remaining:is_empty() then
-                 minetest.chat_send_player(clicker:get_player_name(), "Sie haben Post!")
-             else
-                 minetest.add_item(clicker:get_pos(), remaining)
-             end
+         minetest.dig_node(pos) -- to get drops
+         minetest.place_node(pos, {name = "de_nenio:sieve_empty"})
       end
    end,
 })
@@ -271,8 +286,10 @@ minetest.register_node("de_nenio:sieve_dirt_8", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
 	--sounds = metal_sounds,
+
+   drop = "de_nenio:sieve_empty",
 
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
@@ -306,8 +323,10 @@ minetest.register_node("de_nenio:sieve_dirt_6", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
-	sounds = metal_sounds,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
+	--sounds = metal_sounds,
+
+   drop = "de_nenio:sieve_empty",
 
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
@@ -340,8 +359,10 @@ minetest.register_node("de_nenio:sieve_dirt_4", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
 	--sounds = metal_sounds,
+
+   drop = "de_nenio:sieve_empty",
 
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
@@ -374,34 +395,77 @@ minetest.register_node("de_nenio:sieve_dirt_2", {
 		},
 	},
 
-	groups = {choppy = 2, oddly_breakable_by_hand = 1},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, not_in_creative_inventory = 1},
 	--sounds = metal_sounds,
 
+   drop = {
+      max_items = 5,
+      items = {
+         {
+            rarity = 50,
+            items = {"default:acacia_sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:aspen_sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:junglesapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:emergent_jungle_sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:pine_sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:blueberry_bush_sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:acacia_bush_sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:pine_bush_sapling"}
+         },
+         {
+            rarity = 50,
+            items = {"default:bush_sapling"}
+         },
+         {
+            rarity = 20,
+            items = {"farming:seed_cotton"}
+         },
+         {
+            rarity = 20,
+            items = {"farming:seed_wheat"}
+         },
+         {
+            rarity = 5,
+            items = {"de_nenio:pebble"}
+         },
+         {
+            rarity = 2,
+            items = {"de_nenio:pebble"}
+         },
+         {
+            items = {"de_nenio:pebble 3"}
+         },
+      },
+   },
    on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
       if clicker:is_player() then
-         minetest.swap_node(pos, { name = "de_nenio:sieve_empty" })
-         local dirt_loot = {name = "de_nenio:pebble"}
---[[            max_items = 2,
-            items = {
-               {
-                  items = {"default:sand"},
-               },
-               {
-                  items = {"default:dirt"},
-               },
-            },
-         }]]
-         local inv = clicker:get_inventory()
-             if not inv then
-                 minetest.add_item(clicker:get_pos(), dirt_loot)
-                 return
-             end
-             remaining = inv:add_item("main", dirt_loot)
-             if remaining:is_empty() then
-                 minetest.chat_send_player(clicker:get_player_name(), "Sie haben Post!")
-             else
-                 minetest.add_item(clicker:get_pos(), remaining)
-             end
+         minetest.dig_node(pos) -- to get drops
+         minetest.place_node(pos, {name = "de_nenio:sieve_empty"})
       end
    end,
 })

@@ -5,11 +5,6 @@ minetest.register_craftitem("de_nenio:bucket_cobble", {
    inventory_image = "de_nenio_bucket_cobble.png",
 })
 
-minetest.register_craftitem("de_nenio:pebble", {
-   description = S("Pebble"),
-   inventory_image = "de_nenio_pebble.png",
-})
-
 --Hammers
 
 minetest.register_tool("de_nenio:hammer_wood", {
