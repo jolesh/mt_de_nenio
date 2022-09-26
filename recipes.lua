@@ -14,6 +14,28 @@ minetest.register_craft({
    }
 })
 
+--Fill water from bucket to bottles
+minetest.register_craft({
+   output = "de_nenio:glass_bottle_water 8",
+   recipe = {
+      {"vessels:glass_bottle", "vessels:glass_bottle", "vessels:glass_bottle"},
+      {"vessels:glass_bottle", "bucket:bucket_water", "vessels:glass_bottle"},
+      {"vessels:glass_bottle", "vessels:glass_bottle", "vessels:glass_bottle"},
+   },
+   replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
+})
+
+--Fill water from bottles to bucket
+minetest.register_craft({
+   output = "bucket:bucket_water",
+   recipe = {
+      {"de_nenio:glass_bottle_water", "de_nenio:glass_bottle_water", "de_nenio:glass_bottle_water"},
+      {"de_nenio:glass_bottle_water", "bucket:bucket_empty", "de_nenio:glass_bottle_water"},
+      {"de_nenio:glass_bottle_water", "de_nenio:glass_bottle_water", "de_nenio:glass_bottle_water"},
+   },
+   replacements = {{"de_nenio:glass_bottle_water", "vessels:glass_bottle 8"}},
+})
+
 minetest.register_craft({
    type = "shapeless",
    output = "default:clay 2",
