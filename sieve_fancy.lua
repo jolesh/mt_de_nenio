@@ -170,12 +170,12 @@ minetest.register_node("de_nenio:sieve_empty", {
 	description = S("Sieve"),
 	drawtype = "nodebox",
     tiles = {
-          "de_nenio_sieve_empty_DT.png",  -- TOP
-          "de_nenio_sieve_empty_DT.png",  -- BOTTOM
-          "de_nenio_sieve_empty_side.png",  -- LEFT
-          "de_nenio_sieve_empty_side.png",  -- RIGHT
-          "de_nenio_sieve_empty_side.png",  -- FRONT
-          "de_nenio_sieve_empty_side.png",  -- BACK
+          "de_nenio_sieve_empty_td.png",  -- TOP
+          "de_nenio_sieve_empty_td.png",  -- BOTTOM
+          "de_nenio_sieve_empty_fancy_side.png",  -- LEFT
+          "de_nenio_sieve_empty_fancy_side.png",  -- RIGHT
+          "de_nenio_sieve_empty_fancy_side.png",  -- FRONT
+          "de_nenio_sieve_empty_fancy_side.png",  -- BACK
         },
 
 	node_box = {
